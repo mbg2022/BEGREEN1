@@ -1,0 +1,28 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-enlace {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, #007991 0%, $color-green 51%, #007991 100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.nav-enlace:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
