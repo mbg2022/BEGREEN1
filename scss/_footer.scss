@@ -2,13 +2,11 @@ footer.footerGral {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     background-image: linear-gradient(to right, #007991 0%, $color-green 51%, #007991 100%);
-    grid-area: footerGral;
     justify-items: center;
-    .footer {
-        font-family: 'Montserrat', sans-serif;
-        text-align: center;
-        background-image: linear-gradient(to right, #007991 0%, $color-green 51%, #007991 100%);
-        grid-area: footer;
-        justify-items: center;
-    }
+    grid-area: footerGral;
+}
+
+.footer {
+    @extend footer.footerGral;
+    grid-area: footer;
 }

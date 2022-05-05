@@ -7,28 +7,23 @@
 }
 
 /*Variables*/
-footer.footerGral {
+footer.footerGral, .footer {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   background-image: -webkit-gradient(linear, left top, right top, from(#007991), color-stop(51%, #78ffd6), to(#007991));
   background-image: linear-gradient(to right, #007991 0%, #78ffd6 51%, #007991 100%);
+  justify-items: center;
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: footerGral;
-  justify-items: center;
 }
 
-footer.footerGral .footer {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  background-image: -webkit-gradient(linear, left top, right top, from(#007991), color-stop(51%, #78ffd6), to(#007991));
-  background-image: linear-gradient(to right, #007991 0%, #78ffd6 51%, #007991 100%);
+.footer {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: footer;
-  justify-items: center;
 }
 
 nav {
@@ -77,7 +72,7 @@ body {
           flex-direction: column;
   opacity: 0.9;
   font-family: 'Open Sans', sans-serif;
-  background-image: url(../../images/panel7.jpg);
+  background-image: url(../../images/body/fondoBody.jpg);
   overflow: scroll;
   margin: 0;
   padding: 0;
@@ -114,16 +109,13 @@ main {
 h1 {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-}
-
-h2 {
   text-align: center;
+  color: grey;
+  border-bottom: 3px solid #78ffd6;
+  padding-bottom: 10px;
 }
 
-section,
-nav,
-aside,
-header {
+.genericMarginPadding, nav, section, aside, .header, .headerContenedorGridGral {
   padding: 1rem;
   margin: 0.5rem;
 }
@@ -172,7 +164,7 @@ aside {
       flex-wrap: wrap;
 }
 
-header {
+.header, .headerContenedorGridGral {
   border-radius: 10%;
 }
 
@@ -193,9 +185,10 @@ header {
 }
 
 h2 {
+  text-align: center;
+  width: 100%;
   margin: 10px 0;
   padding-bottom: 10px;
-  width: 100%;
   color: #78788c;
   border-bottom: 2px solid #78788c;
 }
@@ -271,12 +264,6 @@ span {
   margin: 0 5px 0 15px;
 }
 
-p {
-  text-align: left;
-  font-family: 'Roboto', sans-serif;
-  padding: 1%;
-}
-
 .mainProyectos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -305,19 +292,12 @@ p {
   border: 3px double palevioletred;
 }
 
-.subtitulo {
-  text-align: center;
-  font-size: 1.5rem;
-  color: grey;
-  border-bottom: 3px solid #78ffd6;
-  padding-bottom: 10px;
-}
-
 /*1 Grid aplicado a las Páginas en Gral*/
 .contenedorGridGral {
-  width: 98%;
+  width: 90%;
   height: 80vh;
-  margin: 10px auto;
+  padding: 1rem;
+  margin: 0.5rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -326,19 +306,18 @@ p {
       grid-template-rows: repeat(5, 1fr);
   gap: 12px;
       grid-template-areas: "headerContenedorGridGral headerContenedorGridGral headerContenedorGridGral" "encabezadoGral encabezadoGral encabezadoGral" "prodGral prodGral asideGral" "extrasGral extrasGral extrasGral" "footerGral footerGral footerGral";
-  -ms-grid-column-align: center;
-      justify-self: center;
   -ms-grid-row-align: center;
       align-self: center;
+  justify-items: stretch;
 }
 
 .headerContenedorGridGral {
+  margin: 0%;
+  padding: 0%;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: headerContenedorGridGral;
-  border-radius: 0.9%;
-  justify-items: center;
 }
 
 .encabezadoGral {
@@ -391,80 +370,16 @@ p {
 }
 
 /*Contenedor contacto*/
-/*Grid aplicado a la página Contacto*/
-.contenedorGridContacto {
-  width: 98%;
-  height: 80vh;
-  margin: 10px auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: (1fr)[5];
-      grid-template-rows: repeat(5, 1fr);
-  gap: 12px;
-      grid-template-areas: "headerContenedorGridContacto headerContenedorGridContacto " "encabezadoContacto  encabezadoContacto" "prodContacto  prodContacto" "extrasContacto extrasContacto" " footerContacto footerContacto";
-  -ms-grid-column-align: center;
-      justify-self: center;
-  -ms-grid-row-align: center;
-      align-self: center;
-}
+/*
 
-.headerContenedorGridContacto {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: headerContenedorGridContacto;
-  border-radius: 0.9%;
-  justify-items: center;
+footerContacto {
+    background-image: linear-gradient(to right, #007991 0%, $color-green 51%, #007991 100%);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    grid-area: footerContacto;
+    justify-items: center;
 }
-
-.encabezadoContacto {
-  background-color: #78ffd6;
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: encabezadoContacto;
-  justify-items: center;
-  border-radius: 1.5%;
-}
-
-.prodContacto {
-  background-color: white;
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: prodContacto;
-  justify-items: center;
-}
-
-.asideContacto {
-  grid-area: asideContacto;
-  justify-items: center;
-}
-
-.extrasContacto {
-  background-color: #78ffd6;
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: extrasContacto;
-  justify-items: center;
-}
-
-.footerContacto {
-  background-image: -webkit-gradient(linear, left top, right top, from(#007991), color-stop(51%, #78ffd6), to(#007991));
-  background-image: linear-gradient(to right, #007991 0%, #78ffd6 51%, #007991 100%);
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: footerContacto;
-  justify-items: center;
-}
-
-/*Fin 3 acá estamos*/
+*/
 /*4 Servicios*/
 .contenedorGridServicios {
   background-color: white;
@@ -542,6 +457,78 @@ p {
 /*Media Querries*/
 @media only screen and (max-width: 500px) {
   .contenedorGridGral {
+    width: 60%;
+    height: 80vh;
+    margin: 1rem 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (1fr)[7];
+        grid-template-rows: repeat(7, 1fr);
+    gap: 12px;
+        grid-template-areas: "headerContenedorGridGral" "encabezadoGral" "asideGral" "prodGral" "extrasGral" "extrasGral" "extrasGral" "footerGral";
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-grid-row-align: center;
+        align-self: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .h2Nosotros {
+    font-size: small;
+  }
+  .subtitulo {
+    font-size: small;
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: small;
+  }
+  h2 {
+    font-size: small;
+    text-align: left;
+  }
+  h3 {
+    font-size: small;
+  }
+  .prodGralSection {
+    font-family: 'Open Sans', sans-serif;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    text-align: center;
+    background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255, 255, 255, 0.5) 47%, rgba(0, 0, 0, 0.5) 100%);
+    background-blend-mode: hard-light;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  /*Contacto*/
+  .contenedorGridContacto {
+    width: 95%;
+    height: 80vh;
+    margin: 1rem 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (1fr)[7];
+        grid-template-rows: repeat(7, 1fr);
+    gap: 12px;
+        grid-template-areas: "headerContenedorGridContacto" "encabezadoContacto" "prodContacto" "asideContacto" "extrasContacto" "extrasContacto" "footerContacto";
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-grid-row-align: center;
+        align-self: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+/*Media Querries*/
+@media only screen and (max-width: 500px) {
+  .contenedorGridGral {
     width: 95%;
     height: 80vh;
     margin: 1rem 1rem;
@@ -577,6 +564,27 @@ p {
   }
   h3 {
     font-size: medium;
+  }
+  .mainFormContacto {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    -webkit-box-shadow: 10px 10px 40px -14px #0e805d;
+            box-shadow: 10px 10px 40px -14px #0e805d;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-line-pack: center;
+        align-content: center;
   }
   .prodGralSection {
     font-family: 'Open Sans', sans-serif;
@@ -622,7 +630,7 @@ p {
 
 @media only screen and (min-width: 500px) {
   .contenedorGridGral {
-    width: 98%;
+    width: 100%;
     height: 80vh;
     margin: 10px auto;
     display: -ms-grid;
@@ -665,7 +673,7 @@ p {
 
 @media only screen and (min-width: 1000) {
   .contenedorGridGral {
-    width: 50%;
+    width: 60%;
     height: 80vh;
     margin: 10px auto;
     display: -ms-grid;
@@ -682,7 +690,7 @@ p {
         align-self: center;
   }
   .contenedorGridContacto {
-    width: 50%;
+    width: 700%;
     height: 80vh;
     margin: 10px auto;
     display: -ms-grid;

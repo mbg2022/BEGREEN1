@@ -10,12 +10,19 @@
 $color-green:#78ffd6;
 @import "footer";
 @import "nav";
+@mixin subtitulo {
+    text-align: center;
+    color: grey;
+    border-bottom: 3px solid #78ffd6;
+    padding-bottom: 10px;
+}
+
 body {
     display: flex;
     flex-direction: column;
     opacity: 0.9;
     font-family: 'Open Sans', sans-serif;
-    background-image: url(../../images/panel7.jpg);
+    background-image: url(../../images/body/fondoBody.jpg);
     overflow: scroll;
     margin: 0;
     padding: 0;
@@ -41,16 +48,10 @@ main {
 h1 {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    @include subtitulo;
 }
 
-h2 {
-    text-align: center;
-}
-
-section,
-nav,
-aside,
-header {
+.genericMarginPadding {
     padding: 1rem;
     margin: 0.5rem;
 }
@@ -68,6 +69,7 @@ header {
 }
 
 section {
+    @extend .genericMarginPadding;
     font-family: 'Open Sans', sans-serif;
     flex-wrap: wrap;
     text-align: center;
@@ -77,6 +79,7 @@ section {
 }
 
 aside {
+    @extend .genericMarginPadding;
     box-sizing: initial;
     overflow: visible;
     align-content: center;
@@ -85,7 +88,8 @@ aside {
     flex-wrap: wrap;
 }
 
-header {
+.header {
+    @extend .genericMarginPadding;
     border-radius: 10%;
 }
 
@@ -103,20 +107,21 @@ header {
     position: relative
 }
 
-h2 {
-    margin: 10px 0;
-    padding-bottom: 10px;
-    width: 100%;
-    color: #78788c;
-    border-bottom: 2px solid #78788c
-}
-
-.h2Nosotros {
+@mixin h2BaseColorGris {
     text-align: center;
     width: 100%;
     margin: 10px 0;
     padding-bottom: 10px;
     color: #78788c;
+}
+
+h2 {
+    @include h2BaseColorGris();
+    border-bottom: 2px solid #78788c
+}
+
+.h2Nosotros {
+    @include h2BaseColorGris();
     border-bottom: 3px solid #78788c
 }
 
@@ -178,12 +183,6 @@ span {
     margin: 0 5px 0 15px
 }
 
-p {
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-    padding: 1%;
-}
-
 .mainProyectos {
     display: flex;
     flex-direction: row;
@@ -205,34 +204,30 @@ p {
     border: 3px double palevioletred;
 }
 
-.subtitulo {
-    text-align: center;
-    font-size: 1.5rem;
-    color: grey;
-    border-bottom: 3px solid #78ffd6;
-    padding-bottom: 10px;
-}
-
 
 /*1 Grid aplicado a las Páginas en Gral*/
 
 .contenedorGridGral {
-    width: 98%;
+    width: 90%;
     height: 80vh;
-    margin: 10px auto;
+    padding: 1rem;
+    margin: 0.5rem;
+    //margin: 10px auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(5, 1fr);
     gap: 12px;
     grid-template-areas: "headerContenedorGridGral headerContenedorGridGral headerContenedorGridGral" "encabezadoGral encabezadoGral encabezadoGral" "prodGral prodGral asideGral" "extrasGral extrasGral extrasGral" "footerGral footerGral footerGral";
-    justify-self: center;
+    //justify-self: center;
     align-self: center;
+    justify-items: stretch;
 }
 
 .headerContenedorGridGral {
+    @extend .header;
+    margin: 0%;
+    padding: 0%;
     grid-area: headerContenedorGridGral;
-    border-radius: 0.9%;
-    justify-items: center;
 }
 
 .encabezadoGral {
@@ -284,61 +279,16 @@ p {
 /*Contenedor contacto*/
 
 
-/*Grid aplicado a la página Contacto*/
+/*
 
-.contenedorGridContacto {
-    width: 98%;
-    height: 80vh;
-    margin: 10px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    gap: 12px;
-    grid-template-areas: "headerContenedorGridContacto headerContenedorGridContacto " "encabezadoContacto  encabezadoContacto" "prodContacto  prodContacto" "extrasContacto extrasContacto" " footerContacto footerContacto";
-    justify-self: center;
-    align-self: center;
-}
-
-.headerContenedorGridContacto {
-    grid-area: headerContenedorGridContacto;
-    border-radius: 0.9%;
-    justify-items: center;
-}
-
-.encabezadoContacto {
-    background-color: $color-green;
-    grid-area: encabezadoContacto;
-    justify-items: center;
-    border-radius: 1.5%;
-}
-
-.prodContacto {
-    background-color: white;
-    grid-area: prodContacto;
-    justify-items: center;
-}
-
-.asideContacto {
-    grid-area: asideContacto;
-    justify-items: center;
-}
-
-.extrasContacto {
-    background-color: $color-green;
-    grid-area: extrasContacto;
-    justify-items: center;
-}
-
-.footerContacto {
+footerContacto {
     background-image: linear-gradient(to right, #007991 0%, $color-green 51%, #007991 100%);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     grid-area: footerContacto;
     justify-items: center;
 }
-
-
-/*Fin 3 acá estamos*/
+*/
 
 
 /*4 Servicios*/
@@ -401,6 +351,64 @@ p {
 
 @media only screen and (max-width:500px) {
     .contenedorGridGral {
+        width: 60%;
+        height: 80vh;
+        margin: 1rem 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        gap: 12px;
+        grid-template-areas: "headerContenedorGridGral" "encabezadoGral" "asideGral" "prodGral" "extrasGral" "extrasGral" "extrasGral" "footerGral";
+        justify-self: center;
+        align-self: center;
+        align-items: center;
+    }
+    .h2Nosotros {
+        font-size: small;
+    }
+    .subtitulo {
+        font-size: small;
+        margin-bottom: 2rem;
+    }
+    h1 {
+        font-size: small;
+    }
+    h2 {
+        font-size: small;
+        text-align: left;
+    }
+    h3 {
+        font-size: small;
+    }
+    .prodGralSection {
+        font-family: 'Open Sans', sans-serif;
+        flex-wrap: wrap;
+        text-align: center;
+        background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255, 255, 255, 0.50) 47%, rgba(0, 0, 0, 0.50) 100%);
+        background-blend-mode: hard-light;
+        align-content: center;
+    }
+    /*Contacto*/
+    .contenedorGridContacto {
+        width: 95%;
+        height: 80vh;
+        margin: 1rem 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        gap: 12px;
+        grid-template-areas: "headerContenedorGridContacto" "encabezadoContacto" "prodContacto" "asideContacto" "extrasContacto" "extrasContacto" "footerContacto";
+        justify-self: center;
+        align-self: center;
+        align-items: center;
+    }
+}
+
+
+/*Media Querries*/
+
+@media only screen and (max-width:500px) {
+    .contenedorGridGral {
         width: 95%;
         height: 80vh;
         margin: 1rem 1rem;
@@ -429,6 +437,17 @@ p {
     }
     h3 {
         font-size: medium;
+    }
+    .mainFormContacto {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        box-shadow: 10px 10px 40px -14px #0e805d;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: center
     }
     .prodGralSection {
         font-family: 'Open Sans', sans-serif;
@@ -462,7 +481,7 @@ p {
 
 @media only screen and (min-width:500px) {
     .contenedorGridGral {
-        width: 98%;
+        width: 100%;
         height: 80vh;
         margin: 10px auto;
         display: grid;
@@ -493,7 +512,7 @@ p {
 
 @media only screen and (min-width:1000) {
     .contenedorGridGral {
-        width: 50%;
+        width: 60%;
         height: 80vh;
         margin: 10px auto;
         display: grid;
@@ -505,7 +524,7 @@ p {
         align-self: center;
     }
     .contenedorGridContacto {
-        width: 50%;
+        width: 700%;
         height: 80vh;
         margin: 10px auto;
         display: grid;
