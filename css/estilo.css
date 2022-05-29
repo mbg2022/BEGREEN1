@@ -445,7 +445,7 @@ span {
   .h2Nosotros {
     font-size: small; }
   .subtitulo {
-    font-size: x-small;
+    font-size: small;
     margin-top: 0%; }
   h1 {
     font-size: 30px; }
@@ -458,7 +458,7 @@ span {
   h5 {
     font-size: medium;
     float: left;
-    width: fit-content; }
+    width: 100%; }
   h6 {
     font-size: small; }
   .encabezadoGral {
